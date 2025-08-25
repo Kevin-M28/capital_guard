@@ -3,34 +3,26 @@
 import { motion } from 'framer-motion';
 import { useTheme } from '@/contexts/ThemeContext';
 import clsx from 'clsx';
+import { ShieldCheck, Cctv, HatGlasses } from 'lucide-react';
 
 export default function HeroPrincipal() {
   const { theme } = useTheme();
 
   return (
     <motion.section
-      className= 'relative flex h-screen w-screen items-center justify-center overflow-hidden bg-[color:var(--background)]'
-      
+      className=
+        'relative flex h-screen w-screen items-center justify-center overflow-hidden p-0 bg-[color:var(--background)]'
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
     >
-      {/* Background gradient */}
+      {/* Íconos decorativos Lucide */}
+      <ShieldCheck className="pointer-events-none absolute top-10 left-10 z-0 h-32 w-32 text-[color:var(--accent)] opacity-20" />
+      <Cctv className="pointer-events-none absolute right-4 bottom-24 z-0 h-40 w-40 text-[color:var(--primary)] opacity-20" />
+      <HatGlasses className="pointer-events-none absolute top-1/6 right-1/12 z-0 h-24 w-24 text-[color:var(--secondary)] opacity-20" />
+      <HatGlasses className="pointer-events-none absolute top-1/2 left-1/6 z-0 h-24 w-24 text-[color:var(--secondary)] opacity-20" />
       <motion.div
-        className={clsx(
-          'absolute inset-0 opacity-80',
-          theme === 'dark'
-            ? 'bg-gradient-to-br from-[color:var(--accent)] via-[color:var(--background)] to-[color:var(--primary)]'
-            : 'bg-gradient-to-br from-[color:var(--secondary)] via-[color:var(--background)] to-[color:var(--accent)]/30'
-        )}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 0.8 }}
-        transition={{ duration: 1.5 }}
-      />
-      <motion.div
-        className=
-          'relative z-20 mx-auto max-w-4xl rounded-lg p-8 text-center shadow-xl backdrop-blur-sm bg-[color:var(--card)]/80 text-[color:var(--card-foreground)]'
-     
+        className="relative z-20 mx-auto max-w-4xl rounded-lg bg-[color:var(--card)]/80 p-8 text-center text-[color:var(--card-foreground)] shadow-xl backdrop-blur-sm"
         initial={{ y: 40, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, delay: 0.3, ease: 'easeOut' }}

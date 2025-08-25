@@ -3,7 +3,13 @@
 import { motion } from 'motion/react';
 import { useState } from 'react';
 import { Menu } from 'lucide-react';
-import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
+import { Sheet, SheetContent, SheetTrigger, SheetHeader, SheetTitle } from '@/components/ui/sheet';
+import {
+  Accordion,
+  AccordionItem,
+  AccordionTrigger,
+  AccordionContent,
+} from '@/components/ui/accordion';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { headersPrincipal } from '@/constants/headers';
@@ -16,14 +22,16 @@ import {
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from '@/components/ui/navigation-menu';
-import ThemeToggle from './theme-toggle';
+import ThemeToggle from './ThemeToggle';
 import { useTheme } from '@/contexts/ThemeContext';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const { theme } = useTheme();
   return (
-    <nav className="sticky top-0 z-50 flex w-full items-center justify-between bg-transparent px-4 py-3">
+    <nav
+      className={`sticky top-0 z-50 flex w-full items-center justify-between bg-[color:var(--background)]/75 px-4 py-3`}
+    >
       {/* Logo */}
       <motion.img
         src={theme === 'dark' ? '/logowhite.webp' : '/logoblack.webp'}
@@ -87,19 +95,51 @@ export default function Navbar() {
               <Menu />
             </Button>
           </SheetTrigger>
-          <SheetContent side="right" className="w-64 p-6">
-            <div className="flex flex-col space-y-4">
-              {headersPrincipal.map((link) => (
-                <Link key={link.href} href={link.href} onClick={() => setIsOpen(false)}>
-                  <motion.div
-                    whileHover={{ x: 5 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="text-lg font-medium"
-                  >
-                    {link.name}
-                  </motion.div>
-                </Link>
-              ))}
+          <SheetContent side="right" className="w-64 border-0 p-6">
+            <SheetHeader>
+              <SheetTitle>Capital Guard</SheetTitle>
+            </SheetHeader>
+            <div className="mt-2">
+              <Accordion type="multiple" className="flex flex-col space-y-2">
+                {headersPrincipal.map((link) =>
+                  link.children ? (
+                    <AccordionItem key={link.href} value={link.href} className="border-0">
+                      <AccordionTrigger className="text-lg font-semibold no-underline hover:no-underline focus:no-underline">
+                        {link.name}
+                      </AccordionTrigger>
+                      <AccordionContent>
+                        <ul className="ml-2 space-y-2">
+                          {link.children.map((child: any) => (
+                            <li key={child.href}>
+                              <Link href={child.href} onClick={() => setIsOpen(false)}>
+                                <motion.div
+                                  whileHover={{ x: 5 }}
+                                  whileTap={{ scale: 0.95 }}
+                                  className="text-base font-normal"
+                                >
+                                  {child.name}
+                                </motion.div>
+                              </Link>
+                            </li>
+                          ))}
+                        </ul>
+                      </AccordionContent>
+                    </AccordionItem>
+                  ) : (
+                    <div key={link.href} className='py-2' >
+                      <Link href={link.href} onClick={() => setIsOpen(false)}>
+                        <motion.div
+                          whileHover={{ x: 5 }}
+                          whileTap={{ scale: 0.95 }}
+                          className="text-lg font-medium"
+                        >
+                          {link.name}
+                        </motion.div>
+                      </Link>
+                    </div>
+                  )
+                )}
+              </Accordion>
             </div>
           </SheetContent>
         </Sheet>

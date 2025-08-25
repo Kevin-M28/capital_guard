@@ -1,4 +1,4 @@
-import HeroPrincipal from '@/components/layout/principal/hero';
+import HeroPrincipal from '@/components/layout/principal/Hero';
 import Image from 'next/image';
 
 export default function Home() {
