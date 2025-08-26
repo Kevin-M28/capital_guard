@@ -30,18 +30,20 @@ export default function Navbar() {
   const { theme } = useTheme();
   return (
     <nav
-      className={`sticky top-0 z-50 flex w-full items-center justify-between bg-[color:var(--background)]/75 px-4 py-3`}
+      className={`sticky top-0 z-50 flex w-full items-center justify-between bg-[color:var(--background)] px-4 py-3`}
     >
       {/* Logo */}
-      <motion.img
-        src={theme === 'dark' ? '/logowhite.webp' : '/logoblack.webp'}
-        alt="Logo"
-        className="mx-4 h-12"
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        exit={{ opacity: 0, y: -20 }}
-        transition={{ duration: 0.5 }}
-      />
+      <Link href="/" aria-label="Inicio">
+        <motion.img
+          src={theme === 'dark' ? '/logowhite.webp' : '/logoblack.webp'}
+          alt="Logo"
+          className="mx-4 h-12"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -20 }}
+          transition={{ duration: 0.5 }}
+        />
+      </Link>
 
       {/* Desktop Menu with Navigation-Menu */}
       <motion.div
@@ -112,13 +114,9 @@ export default function Navbar() {
                           {link.children.map((child: any) => (
                             <li key={child.href}>
                               <Link href={child.href} onClick={() => setIsOpen(false)}>
-                                <motion.div
-                                  whileHover={{ x: 5 }}
-                                  whileTap={{ scale: 0.95 }}
-                                  className="text-base font-normal"
-                                >
+                                <div className="text-base font-normal">
                                   {child.name}
-                                </motion.div>
+                                </div>
                               </Link>
                             </li>
                           ))}
@@ -126,7 +124,7 @@ export default function Navbar() {
                       </AccordionContent>
                     </AccordionItem>
                   ) : (
-                    <div key={link.href} className='py-2' >
+                    <div key={link.href} className="py-2">
                       <Link href={link.href} onClick={() => setIsOpen(false)}>
                         <motion.div
                           whileHover={{ x: 5 }}

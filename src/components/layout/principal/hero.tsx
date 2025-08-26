@@ -4,23 +4,36 @@ import { motion } from 'framer-motion';
 import { useTheme } from '@/contexts/ThemeContext';
 import clsx from 'clsx';
 import { ShieldCheck, Cctv, HatGlasses } from 'lucide-react';
+import { useEffect, useState } from 'react';
 
 export default function HeroPrincipal() {
   const { theme } = useTheme();
+  const images = ['/bn1.jpg', '/bn2.jpg'];
+  const [bgIndex, setBgIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setBgIndex((prev) => (prev + 1) % images.length);
+    }, 5000); // Cambia cada 5 segundos
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <motion.section
-      className=
-        'relative flex h-screen w-screen items-center justify-center overflow-hidden p-0 bg-[color:var(--background)]'
+      style={{
+        backgroundImage: `url(${images[bgIndex]})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+      }}
+      className={
+        'relative flex h-[50vh] w-full items-center justify-center overflow-hidden bg-[color:var(--background)] p-0'
+      }
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
     >
-      {/* Íconos decorativos Lucide */}
-      <ShieldCheck className="pointer-events-none absolute top-10 left-10 z-0 h-32 w-32 text-[color:var(--accent)] opacity-20" />
-      <Cctv className="pointer-events-none absolute right-4 bottom-24 z-0 h-40 w-40 text-[color:var(--primary)] opacity-20" />
-      <HatGlasses className="pointer-events-none absolute top-1/6 right-1/12 z-0 h-24 w-24 text-[color:var(--secondary)] opacity-20" />
-      <HatGlasses className="pointer-events-none absolute top-1/2 left-1/6 z-0 h-24 w-24 text-[color:var(--secondary)] opacity-20" />
+      
       <motion.div
         className="relative z-20 mx-auto max-w-4xl rounded-lg bg-[color:var(--card)]/80 p-8 text-center text-[color:var(--card-foreground)] shadow-xl backdrop-blur-sm"
         initial={{ y: 40, opacity: 0 }}
