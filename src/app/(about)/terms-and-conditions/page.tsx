@@ -5,7 +5,7 @@ export default function TerminosCondiciones() {
   return (
     <section className="relative mx-auto flex min-h-[80vh] w-full max-w-3xl flex-col items-center justify-center px-4 py-12 text-[color:var(--foreground)]">
       {/* Fondo decorativo */}
-      <div className="pointer-events-none absolute top-0 left-0 -z-10 h-full w-full " />
+      <div className="pointer-events-none absolute top-0 left-0 -z-10 h-full w-full" />
       <div className="relative w-full rounded-2xl border border-[color:var(--primary)] bg-[color:var(--card)]/90 p-6 shadow-xl backdrop-blur-md md:p-12">
         <div className="flex flex-col items-center">
           <ShieldCheck className="mb-2 size-10 text-[color:var(--primary)]" />
@@ -49,6 +49,29 @@ export default function TerminosCondiciones() {
             Utilizamos cookies propias y de terceros para mejorar la experiencia de usuario y
             garantizar la seguridad en la navegación. Puedes configurar o rechazar las cookies desde
             la configuración de tu navegador.
+          </p>
+          <br />
+          <ul className="mb-4">
+            <li>
+              <b>Cookies necesarias:</b> Son esenciales para el funcionamiento básico del sitio web
+              y permiten funciones como la navegación y el acceso a áreas seguras.
+            </li>
+            <li>
+              <b>Cookies funcionales:</b> Permiten recordar tus preferencias y personalizar la
+              experiencia en el sitio.
+            </li>
+            <li>
+              <b>Cookies analíticas:</b> Nos ayudan a entender cómo interactúan los usuarios con el
+              sitio, recopilando información de forma anónima para mejorar nuestros servicios.
+            </li>
+            <li>
+              <b>Cookies de marketing:</b> Se utilizan para mostrar anuncios relevantes y medir la
+              efectividad de nuestras campañas publicitarias.
+            </li>
+          </ul>
+          <p>
+            Puedes elegir aceptar todas las cookies (funcionales, analíticas y de marketing) o solo
+            las necesarias mediante el banner de consentimiento. Para más información, contáctanos.
           </p>
           <h2 className="mt-8 border-l-4 border-[color:var(--primary)] pl-3 text-xl font-bold">
             5. Términos de Uso del Sitio Web
