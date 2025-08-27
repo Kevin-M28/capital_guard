@@ -5,7 +5,7 @@ export const headersPrincipal = [
     name: 'Nosotros',
     href: '/about',
     children: [
-      { name: 'Nuestra Historia', href: '/about/our-story' },
+      { name: 'Nuestra Historia', href: '/about-us' },
       { name: 'Términos y Condiciones', href: '/terms-and-conditions' },
     ],
   },

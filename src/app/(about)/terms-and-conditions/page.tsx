@@ -4,9 +4,7 @@ import { ShieldCheck } from 'lucide-react';
 export default function TerminosCondiciones() {
   return (
     <section className="relative mx-auto flex min-h-[80vh] w-full max-w-3xl flex-col items-center justify-center px-4 py-12 text-[color:var(--foreground)]">
-      {/* Fondo decorativo */}
-      <div className="pointer-events-none absolute top-0 left-0 -z-10 h-full w-full" />
-      <div className="relative w-full rounded-2xl border border-[color:var(--primary)] bg-[color:var(--card)]/90 p-6 shadow-xl backdrop-blur-md md:p-12">
+      <div className="relative w-[60vw] rounded-2xl border border-[color:var(--primary)] bg-[color:var(--card)]/90 p-6 shadow-xl backdrop-blur-md md:p-12">
         <div className="flex flex-col items-center">
           <ShieldCheck className="mb-2 size-10 text-[color:var(--primary)]" />
           <h1 className="mb-2 text-center text-3xl font-extrabold tracking-tight md:text-4xl">
