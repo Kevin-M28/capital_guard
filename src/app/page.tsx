@@ -1,5 +1,5 @@
-import CallToActions from '@/components/layout/principal/CallToActions';
-import HeroPrincipal from '@/components/layout/principal/Hero';
+import CallToActions from '@/components/layout/principal/callToActions';
+import HeroPrincipal from '@/components/layout/principal/hero';
 export default function Home() {
   return (
     <main className="flex flex-col items-center justify-center">

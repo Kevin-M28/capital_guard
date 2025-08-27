@@ -1,7 +1,7 @@
 'use client';
 
-import { motion } from 'framer-motion';
-import { useTheme } from '@/contexts/ThemeContext';
+import { motion } from 'motion/react';
+import { useTheme } from '@/contexts/themeContext';
 import clsx from 'clsx';
 import { useEffect, useState } from 'react';
 
@@ -32,7 +32,6 @@ export default function HeroPrincipal() {
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
     >
-      
       <motion.div
         className="relative z-20 mx-auto max-w-4xl rounded-lg bg-[color:var(--card)]/80 p-8 text-center text-[color:var(--card-foreground)] shadow-xl backdrop-blur-sm"
         initial={{ y: 40, opacity: 0 }}

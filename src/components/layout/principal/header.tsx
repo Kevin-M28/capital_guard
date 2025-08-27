@@ -22,12 +22,11 @@ import {
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from '@/components/ui/navigation-menu';
-import ThemeToggle from './ThemeToggle';
-import { useTheme } from '@/contexts/ThemeContext';
+import ThemeToggle from '@/components/layout/principal/themeToggle';
+import { useTheme } from '@/contexts/themeContext';
 import { Header } from '@/types/principal';
 
-
-export default function Navbar() {
+export default function HeaderComponent() {
   const [isOpen, setIsOpen] = useState(false);
   const { theme } = useTheme();
   return (
@@ -116,9 +115,7 @@ export default function Navbar() {
                           {link.children.map((child: Header) => (
                             <li key={child.href}>
                               <Link href={child.href} onClick={() => setIsOpen(false)}>
-                                <div className="text-base font-normal">
-                                  {child.name}
-                                </div>
+                                <div className="text-base font-normal">{child.name}</div>
                               </Link>
                             </li>
                           ))}
