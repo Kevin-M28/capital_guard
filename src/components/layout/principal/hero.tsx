@@ -3,7 +3,6 @@
 import { motion } from 'framer-motion';
 import { useTheme } from '@/contexts/ThemeContext';
 import clsx from 'clsx';
-import { ShieldCheck, Cctv, HatGlasses } from 'lucide-react';
 import { useEffect, useState } from 'react';
 
 export default function HeroPrincipal() {
@@ -16,7 +15,7 @@ export default function HeroPrincipal() {
       setBgIndex((prev) => (prev + 1) % images.length);
     }, 5000); // Cambia cada 5 segundos
     return () => clearInterval(interval);
-  }, []);
+  });
 
   return (
     <motion.section

@@ -1,6 +1,5 @@
-import { Children } from 'react';
-
-export const headersPrincipal = [
+import {Header} from '@/types/principal';
+export const headersPrincipal: Header[] = [
   {
     name: 'Nosotros',
     href: '/about',

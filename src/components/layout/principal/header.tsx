@@ -24,6 +24,8 @@ import {
 } from '@/components/ui/navigation-menu';
 import ThemeToggle from './ThemeToggle';
 import { useTheme } from '@/contexts/ThemeContext';
+import { Header } from '@/types/principal';
+
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -65,7 +67,7 @@ export default function Navbar() {
                     </NavigationMenuTrigger>
                     <NavigationMenuContent>
                       <ul className="min-w-[150px] p-2">
-                        {link.children.map((child: any) => (
+                        {link.children.map((child: Header) => (
                           <li key={child.href}>
                             <NavigationMenuLink asChild>
                               <Link href={child.href} className="block px-2 py-1">
@@ -111,7 +113,7 @@ export default function Navbar() {
                       </AccordionTrigger>
                       <AccordionContent>
                         <ul className="ml-2 space-y-2">
-                          {link.children.map((child: any) => (
+                          {link.children.map((child: Header) => (
                             <li key={child.href}>
                               <Link href={child.href} onClick={() => setIsOpen(false)}>
                                 <div className="text-base font-normal">

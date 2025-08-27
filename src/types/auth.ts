@@ -1,10 +1,5 @@
 import { DefaultSession } from "next-auth"
-import { JWT } from "next-auth/jwt"
 
-type Permission = {
-  id: string
-  name: string
-}
 
 declare module "next-auth" {
   interface Session {
@@ -25,9 +20,6 @@ declare module "next-auth" {
     firstName?: string
     lastName?: string
   }
-}
-
-declare module "next-auth/jwt" {
   interface JWT {
     id: string
     role: string
@@ -37,4 +29,10 @@ declare module "next-auth/jwt" {
     lastName?: string
     permissionsUpdatedAt?: string
   }
+}
+
+export interface Permission{
+  id: string
+  name: string
+  description?: string
 }
